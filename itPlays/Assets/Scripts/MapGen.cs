@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using System.IO;
 using System.Linq;
@@ -89,6 +90,7 @@ public class MapGen : MonoBehaviour
         int textWidth = size_x * tileResolution;
         int textHeight = size_y * tileResolution;
         Texture2D texture = new Texture2D(textWidth, textHeight);
+        System.Random random = new System.Random();
 
         for (int y = 0; y < size_y; y++)
         {
@@ -100,13 +102,10 @@ public class MapGen : MonoBehaviour
                 switch (tile)
                 {
                     case '@':
-                        texture_index = 4;
-                        break;
-                    case 'T':
-                        texture_index = 1;
+                        texture_index = random.Next(1, 5);
                         break;
                     case '.':
-                        texture_index = 2;
+                        texture_index = 0; 
                         break;
                 }
 
@@ -187,7 +186,7 @@ public class MapGen : MonoBehaviour
     void CreateOverlay()
     {
         GameObject parent = new GameObject();
-        parent.name = "GridnCenterPts";
+        parent.name = "GridCenterPts";
         parent.tag = "Tiles";
 
         for (int x = 0; x < size_x + 1; x++)
