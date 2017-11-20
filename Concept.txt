@@ -22,12 +22,6 @@ The map:
     a fortress which our AI must defend
     the fortress would have 100hp and this hp would come into account when our AI is making decisions
     
-Simple AI:
-    one ground and one air unit
-    Have the unit spawn every 3 seconds
-    It follows some path towards the fortress.
-    Should it reach the fortress, the fortress looses 10hp.
-    The unit will have 10 hp to start off
 
 The towers:
     a simple ground or air tower that only damages ground or air units
@@ -37,13 +31,18 @@ The towers:
         this will do 1.5 damage per second
         shooting radius is in a circle
 
-The AI
+Minion AI:
+    one ground and one air unit
+    have the unit spawn every 3 seconds
+    minions will spawn randomly on the outer path of the map
+    the minion AI will use path following to find the best path to the base with least resistant
+
+The AI:
     will be in charge of spawing towers
-    there will be a money system taht gradually increses over time and every time a simple AI is destroyed
-    takes into account:
-        how much money it has: the less money it has the less likely it would want to spend it, so if it has a little money only spend if it trully needs to
-        the HP of the fortress, should the fortress be a lower hp the more likely it is to spend money
-        how much damage it currently has on the map, if it has 1 ground tower on the map that is killing the simple AI nicely, then it would save money, but should something like an air unit arrive and it does not have an air defense it is more likely to spawn an air defense.
+    the map will be completely hidden tot the AI
+    only when it places towers will it gain vision of the map
+    the AI will use MDP with using how much of the map it knows as an uncertanty
+        
 
 After these simple topics have been implemented:
     We could expand on simple AI such as increasing their health, or speed
