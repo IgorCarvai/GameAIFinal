@@ -51,10 +51,9 @@ public class mouseOver : MonoBehaviour {
         else if ((y - 1) % 3 == 1)
             y -= 1;
 
-
+        
         if (Input.GetMouseButtonDown(0))
         {
-            print("hi");
             if (airTowerBut.GetComponent<airTowerBut>().GetAir())
             {
 
