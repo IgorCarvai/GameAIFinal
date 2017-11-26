@@ -28,16 +28,18 @@ public class gtScript : MonoBehaviour {
         }
         else
         {
-            Vector3 difference = enemy.position - transform.position;
-            float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            child.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ-90);
-
-            if (fire == 0)
+            if (enemy)
             {
-                shoot(Quaternion.Euler(0.0f, 0.0f, rotationZ - 90), difference);
-                fire = 3;
-            }
+                Vector3 difference = enemy.position - transform.position;
+                float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                child.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ - 90);
 
+                if (fire == 0)
+                {
+                    shoot(Quaternion.Euler(0.0f, 0.0f, rotationZ - 90), difference);
+                    fire = 3;
+                }
+            }
         }
         /*
          * asd
@@ -48,7 +50,6 @@ public class gtScript : MonoBehaviour {
 
     void shoot(Quaternion q, Vector3 diff)
     {
-        print("here");
         var bul = (GameObject)Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y,-2), q);
         bul.GetComponent<bulletScript>().dir = diff*.025f;
         Destroy(bul, 2.0f);

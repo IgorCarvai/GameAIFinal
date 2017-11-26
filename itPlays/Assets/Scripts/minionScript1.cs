@@ -6,18 +6,16 @@ public class minionScript1 : MonoBehaviour {
 
     public bool playerControl = true;
     public float speed = 0.5f;
-    System.Random rnd;
     int steps;
     int yDir;
     int xDir;
     Vector3 dir;
     // Use this for initialization
     void Start () {
-
-        rnd = new System.Random();
-        steps = rnd.Next(1, 7);
-        yDir = rnd.Next(-1, 2);
-        xDir = rnd.Next(-1, 2);
+        
+        steps = Random.Range(10, 20);
+        yDir = Random.Range(-1, 2);
+        xDir = Random.Range(-1, 2);
         dir = new Vector3(xDir, yDir, 0);
     }
 	
@@ -39,9 +37,9 @@ public class minionScript1 : MonoBehaviour {
             }
             else
             {
-                steps = rnd.Next(5, 13);
-                yDir = rnd.Next(-1, 2);
-                xDir = rnd.Next(-1, 2);
+                steps = Random.Range(10, 20);
+                yDir = Random.Range(-1, 2);
+                xDir = Random.Range(-1, 2);
                 dir = new Vector3(xDir, yDir, 0);
 
             }
