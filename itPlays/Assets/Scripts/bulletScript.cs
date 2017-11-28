@@ -21,7 +21,7 @@ public class bulletScript : MonoBehaviour {
             lastUpdate = Time.time;
         }
 
-        if (life <= 0)
+        if (life <= 0 || this.transform.position.x<0 || this.transform.position.x>60|| this.transform.position.y<0|| this.transform.position.y>60)
         {
             Destroy(this.gameObject);
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gtScript : MonoBehaviour {
+public class atScript : MonoBehaviour {
 
     public GameObject bullet;
     public int chasing = 0;
@@ -56,7 +56,7 @@ public class gtScript : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "GM")
+        if (coll.gameObject.tag == "AM")
         {
             enemy = coll.gameObject.transform;
             chasing++;
@@ -64,7 +64,7 @@ public class gtScript : MonoBehaviour {
     }
     void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "GM")
+        if (coll.gameObject.tag == "AM")
         {
             chasing--;
         }

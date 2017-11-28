@@ -24,4 +24,11 @@ public class baseScript : MonoBehaviour {
         hp.text = "HP = " + health;
 		
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        decreaseHealth();
+
+        Destroy(other.gameObject);
+    }
 }
