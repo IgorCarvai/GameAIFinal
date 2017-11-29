@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletScript : MonoBehaviour {
+public class airbulletScript : MonoBehaviour {
 
     public Vector3 dir;
     public int life=3;
     public float lastUpdate = 0;
+    GameObject baseTower;
 	// Use this for initialization
 	void Start () {
-		
-	}
+
+        baseTower = GameObject.FindGameObjectWithTag("base");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,8 +31,9 @@ public class bulletScript : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Minion")
+        if (coll.gameObject.tag == "AM")
         {
+            baseTower.GetComponent<baseScript>().minionKilled();
             Destroy(coll.gameObject);
             Destroy(this.gameObject);
         }

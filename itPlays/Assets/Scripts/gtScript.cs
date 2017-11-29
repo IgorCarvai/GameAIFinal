@@ -51,7 +51,7 @@ public class gtScript : MonoBehaviour {
     void shoot(Quaternion q, Vector3 diff)
     {
         var bul = (GameObject)Instantiate(bullet, new Vector3(this.transform.position.x, this.transform.position.y,-2), q);
-        bul.GetComponent<bulletScript>().dir = diff*.025f;
+        bul.GetComponent<groundbulletScript>().dir = diff*.025f;
         Destroy(bul, 2.0f);
     }
     void OnTriggerEnter2D(Collider2D coll)
