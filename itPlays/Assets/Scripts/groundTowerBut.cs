@@ -7,10 +7,12 @@ public class groundTowerBut : MonoBehaviour {
     bool activateGround;
     Text text;
     string og;
+    GameObject baseTower;
     // Use this for initialization
     void Start()
     {
         activateGround = false;
+        baseTower = GameObject.FindGameObjectWithTag("base");
         text = GetComponentInChildren<Text>();
         og = text.text;
     }
@@ -22,9 +24,15 @@ public class groundTowerBut : MonoBehaviour {
     }
     public void setGroundTrue()
     {
-
-        activateGround = true;
-        text.text = "click to set location";
+        if (baseTower.GetComponent<baseScript>().coins > 100)
+        {
+            activateGround = true;
+            text.text = "click to set location";
+        }
+        else
+        {
+            text.text = "Not enough coins";
+        }
 
     }
     public bool GetGround()

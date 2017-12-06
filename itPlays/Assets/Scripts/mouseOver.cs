@@ -13,6 +13,8 @@ public class mouseOver : MonoBehaviour {
     public GameObject airTower;
     public GameObject groundTower;
 
+    public GameObject baseTower;
+
     GameObject start_tile;
     GameObject end_tile;
 
@@ -20,6 +22,7 @@ public class mouseOver : MonoBehaviour {
     {
         mapgen = GetComponent<MapGen>();
         map = mapgen.map;
+        baseTower = GameObject.FindGameObjectWithTag("base");
     }
 
     // Update is called once per frame
@@ -58,16 +61,14 @@ public class mouseOver : MonoBehaviour {
             {
 
                 start_tile = Instantiate(airTower, new Vector3(x + mapgen.tileSize / 2f, y + mapgen.tileSize / 2f, -2), new Quaternion(0, 0, 0, 0));
-                start_tile.transform.localScale = new Vector3(3, 3, 0);
-
+                baseTower.GetComponent<baseScript>().spawnTower();
                 airTowerBut.GetComponent<airTowerBut>().setAirFalse();
             }
             else if (groundTowerBut.GetComponent<groundTowerBut>().GetGround())
             {
 
                 end_tile = Instantiate(groundTower, new Vector3(x + mapgen.tileSize / 2f, y + mapgen.tileSize / 2f, -2), new Quaternion(0, 0, 0, 0));
-                end_tile.transform.localScale = new Vector3(3, 3, 0);
-
+                baseTower.GetComponent<baseScript>().spawnTower();
                 groundTowerBut.GetComponent<groundTowerBut>().setGroundFalse();
             }
         }

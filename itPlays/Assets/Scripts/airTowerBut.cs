@@ -8,10 +8,12 @@ public class airTowerBut : MonoBehaviour {
     bool activateAir;
     Text text;
     string og;
+    GameObject baseTower;
     // Use this for initialization
     void Start () {
         activateAir = false;
         text = GetComponentInChildren<Text>();
+        baseTower = GameObject.FindGameObjectWithTag("base");
         og = text.text;
     }
 
@@ -22,8 +24,15 @@ public class airTowerBut : MonoBehaviour {
     }
     public void setAirTrue()
     {
-        activateAir = true;
-        text.text = "click to set location"; 
+        if (baseTower.GetComponent<baseScript>().coins > 100)
+        {
+            activateAir = true;
+            text.text = "click to set location";
+        }
+        else
+        {
+            text.text = "Not enough coins";
+        }
     }
     public bool GetAir()
     {
