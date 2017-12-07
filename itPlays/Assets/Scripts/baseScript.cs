@@ -17,6 +17,8 @@ public class baseScript : MonoBehaviour {
     List<GameObject> groundMinions;
     List<GameObject> airMinions;
 
+    List<Vector2> posibleTowers;
+
 
     // Use this for initialization
     void Start () {
@@ -27,6 +29,21 @@ public class baseScript : MonoBehaviour {
         health = 100;
         coins = 100;
         findGTsATs();
+        posibleTowers = new List<Vector2>();
+        for(int i =6; i<=54; i = i + 12)
+        {
+            for (int j = 6; j <= 54; j = j + 12)
+            {
+                if (i == 6 && j == 54)
+                    continue;
+                posibleTowers.Add(new Vector2(i, j));
+            }
+
+        }
+        foreach(Vector2 loc in posibleTowers)
+        {
+            Instantiate(GT, new Vector3(loc.x, loc.y, -2), Quaternion.identity);
+        }
     }
     // Update is called once per frame
     void Update()
@@ -37,8 +54,13 @@ public class baseScript : MonoBehaviour {
         UpdateMinions();
         UpdateGui();
 
-    }
+        Vector2 spot = furthestSpot();
 
+    }
+    Vector2 furthestSpot()
+    {
+        return new Vector2(1f, 1f);
+    }
     //since minions can be destroyed, we need to remove the ones that are null
     void UpdateMinions()
     {
