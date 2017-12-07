@@ -32,7 +32,7 @@ public class minionScript1 : MonoBehaviour
     {
         if (playerControl)
         {
-            this.transform.position += speed * (new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0));
+            this.transform.position += speed * Time.deltaTime * (new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0));
         }
         else
         {

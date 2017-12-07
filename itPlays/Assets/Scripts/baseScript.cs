@@ -254,7 +254,7 @@ public class baseScript : MonoBehaviour {
                             {
                                 maxReward = reward;
                                 bestAction = tower_loc;
-                                bestType = 0;
+                                bestType = 1;
                             }
                         }
                     }
@@ -269,7 +269,7 @@ public class baseScript : MonoBehaviour {
                         {
                             maxReward = reward;
                             bestAction = tower_loc;
-                            bestType = 0;
+                            bestType = 1;
                         }
                     }
                 }
