@@ -219,9 +219,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AIBehavior.cs" />
+    <Compile Include="Assets\Scripts\airbulletScript.cs" />
     <Compile Include="Assets\Scripts\airTowerBut.cs" />
+    <Compile Include="Assets\Scripts\atScript.cs" />
     <Compile Include="Assets\Scripts\baseScript.cs" />
-    <Compile Include="Assets\Scripts\bulletScript.cs" />
+    <Compile Include="Assets\Scripts\groundbulletScript.cs" />
     <Compile Include="Assets\Scripts\groundTowerBut.cs" />
     <Compile Include="Assets\Scripts\gtScript.cs" />
     <Compile Include="Assets\Scripts\MapGen.cs" />
