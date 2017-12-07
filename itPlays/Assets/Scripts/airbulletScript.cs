@@ -33,7 +33,7 @@ public class airbulletScript : MonoBehaviour {
     {
         if (coll.gameObject.tag == "AM")
         {
-            baseTower.GetComponent<baseScript>().minionKilled();
+            baseTower.GetComponent<baseScript>().airMinionKilled(coll.gameObject.transform.position);
             Destroy(coll.gameObject);
             Destroy(this.gameObject);
         }

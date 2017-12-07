@@ -16,7 +16,6 @@ public class groundbulletScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        print(baseTower.transform.position);
         this.transform.position += dir;
         if (Time.time - lastUpdate >= 1f)
         {
@@ -34,7 +33,7 @@ public class groundbulletScript : MonoBehaviour {
     {
         if (coll.gameObject.tag == "GM")
         {
-            baseTower.GetComponent<baseScript>().minionKilled();
+            baseTower.GetComponent<baseScript>().groundMinionKilled(coll.gameObject.transform.position);
             Destroy(coll.gameObject);
             Destroy(this.gameObject);
         }
